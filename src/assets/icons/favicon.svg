@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <style>
+    text {
+      fill: #0b0f19; /* Standard / Light Mode: Tiefes Dunkelblau/Schwarz */
+    }
+    @media (prefers-color-scheme: dark) {
+      text {
+        fill: #ffffff; /* Dark Mode: Klares Weiß */
+      }
+    }
+  </style>
+
+  <text 
+    x="50%" 
+    y="54%" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-weight="900" 
+    font-style="italic" 
+    font-size="340" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    letter-spacing="-12">CE</text>
+</svg>
