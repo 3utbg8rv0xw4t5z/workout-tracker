@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Verweis auf deine Sitemap
+Sitemap: https://deine-domain.de/sitemap.xml

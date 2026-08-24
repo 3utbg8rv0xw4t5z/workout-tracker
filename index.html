@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <meta name="color-scheme" content="dark light" />
+
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = savedTheme ? savedTheme : (prefersDark ? "dark" : "light");
+
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      const isPWA =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.matchMedia("(display-mode: window-controls-overlay)").matches ||
+        window.navigator.standalone === true;
+
+      document.title = isPWA
+        ? "Overload – Gym & Progress Tracker"
+        : "OVERLOAD | Gym & Progress Tracker – Smarte Trainingsapp";
+    })();
+  </script>
+
+  <noscript>
+    <title>OVERLOAD | Gym & Progress Tracker</title>
+  </noscript>
+
+
+  <meta name="author" content="Overload" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Die offizielle Mobile-First Landingpage & Wissensplattform für die Overload Gym & Progress Tracker App. Progressive Overload, smartes Routine-Tracking & Workouts." />
+  <meta name="keywords"
+    content="Overload App, Gym Tracker, Workout Tracker, Progressive Overload, Kraftsport App, Trainingsplan, Flutter Fitness App" />
+
+  <link rel="canonical" href="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
+
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:url" content="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
+  <meta property="og:title" content="OVERLOAD | Gym & Progress Tracker" />
+  <meta property="og:description"
+    content="Smarte Trainingserfassung, Routine-Management und Progressive Overload Tracking." />
+
+
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Overload" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Overload" />
+
+  <meta name="msapplication-TileColor" content="#0b0f19" />
+  <meta id="meta-theme-light" name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta id="meta-theme-dark" name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)" />
+
+
+  <link rel="stylesheet" href="src/css/style.css" />
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Overload - Gym & Progress Tracker",
+      "applicationCategory": "HealthAndFitnessApplication",
+      "operatingSystem": "Android, iOS",
+      "description": "Mobile App für smartes Krafttraining, Routine-Tracking und progressive Steigerung.",
+      "url": "https://3utbg8rv0xw4t5z.github.io/overload-website/"
+    }
+  </script>
+</head>
+
+<body>
+  <div id="page-preloader"></div>
+
+  <main>
+    <h1>🏋️‍♂️ Overload – Gym & Progress Tracker</h1>
+    <p>Landingpage & Knowledge Hub under construction. Bald verfügbar!</p>
+  </main>
+
+
+  <script src="src/js/script.js" defer></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js", { scope: "./" })
+          .then((registration) => console.log("[Overload SW] Aktiv im Scope:", registration.scope))
+          .catch((error) => console.error("[Overload SW] Fehler:", error));
+      });
+    }
+  </script>
+</body>
+
+</html>
