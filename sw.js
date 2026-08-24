@@ -1,6 +1,6 @@
-const CACHE_NAME = "overload-website-v1";
+const CACHE_NAME = "overload-website-v2";
 
-// Alle Dateien, die aktuell vorhanden sind und für den Offline-Betrieb gecacht werden sollen
+// Alle Dateien, die für den Offline-Betrieb gecacht werden
 const ASSETS_TO_CACHE = [
   // Basis-Dateien & Routing
   "./",
@@ -17,13 +17,11 @@ const ASSETS_TO_CACHE = [
   // Schriften
   "./src/assets/fonts/Inter-VariableFont_opsz,wght.ttf",
   "./src/assets/fonts/InterTight-VariableFont_wght.ttf",
-  "./src/assets/fonts/material-symbols-rounded-latin-standard-normal.woff2"
+  "./src/assets/fonts/material-symbols-rounded-latin-standard-normal.woff2",
 
-  // Hinweis: Sobald Icons (Favicons) oder Bilder im Ordner liegen,
-  // fügst du sie einfach hier wieder mit an:
-  // "./src/assets/icons/favicon.svg",
-  // "./src/assets/icons/favicon-192.png",
-  // "./src/assets/icons/favicon-512.png"
+  // Icons für PWA-Installation & Favicons
+  "./src/assets/icons/icon-192.png",
+  "./src/assets/icons/icon-512.png"
 ];
 
 // 1. Installation: Dateien laden und im Cache ablegen
@@ -60,12 +58,36 @@ self.addEventListener("activate", (event) => {
 
 // 3. Fetch-Strategie: Cache First mit Netzwerk-Fallback
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") return;
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse;
       }
-      return fetch(event.request);
+
+      return fetch(event.request)
+        .then((networkResponse) => {
+          if (
+            !networkResponse ||
+            networkResponse.status !== 200 ||
+            networkResponse.type !== "basic"
+          ) {
+            return networkResponse;
+          }
+
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+
+          return networkResponse;
+        })
+        .catch(() => {
+          if (event.request.headers.get("accept")?.includes("text/html")) {
+            return caches.match("./404.html");
+          }
+        });
     })
   );
 });
