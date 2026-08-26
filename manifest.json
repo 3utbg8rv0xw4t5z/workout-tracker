@@ -19,7 +19,7 @@
       "src": "src/assets/icons/app-icon-dark.svg",
       "sizes": "192x192 512x512",
       "type": "image/svg+xml",
-      "purpose": "maskable"
+      "purpose": "any"
     }
   ],
   "theme_colors": [
