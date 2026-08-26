@@ -6,24 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <meta name="color-scheme" content="dark light" />
-
-  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-
-  <link rel="icon" type="image/png" sizes="192x192" href="src/assets/icons/icon-192.png" />
-  <link rel="apple-touch-icon" href="src/assets/icons/icon-192.png" />
-
-  <script>
-    (function () {
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const theme = savedTheme ? savedTheme : (prefersDark ? "dark" : "light");
-
-      document.documentElement.setAttribute("data-theme", theme);
-      document.documentElement.style.colorScheme = theme;
-    })();
-  </script>
-
+  <title>Overload: Fokussiertes Progress Tracking ohne Kompromisse</title>
   <script>
     (function () {
       const isPWA =
@@ -31,55 +14,177 @@
         window.matchMedia("(display-mode: window-controls-overlay)").matches ||
         window.navigator.standalone === true;
 
-      document.title = isPWA
-        ? "Overload – Gym & Progress Tracker"
-        : "OVERLOAD | Gym & Progress Tracker – Smarte Trainingsapp";
+      document.title = "Overload: Fokussiertes Progress Tracking ohne Kompromisse";
     })();
   </script>
 
-  <noscript>
-    <title>OVERLOAD | Gym & Progress Tracker</title>
-  </noscript>
-
-  <meta name="author" content="Overload" />
-  <meta name="robots" content="index, follow" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <meta name="description"
-    content="Die offizielle Mobile-First Landingpage & Wissensplattform für die Overload Gym & Progress Tracker App. Progressive Overload, smartes Routine-Tracking & Workouts." />
-  <meta name="keywords"
-    content="Overload App, Gym Tracker, Workout Tracker, Progressive Overload, Kraftsport App, Trainingsplan, Flutter Fitness App" />
-
-  <link rel="canonical" href="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:url" content="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
-  <meta property="og:title" content="OVERLOAD | Gym & Progress Tracker" />
-  <meta property="og:description"
-    content="Smarte Trainingserfassung, Routine-Management und Progressive Overload Tracking." />
-
-  <link rel="manifest" href="manifest.json" />
-
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="application-name" content="Overload" />
+    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Overload" />
 
-  <meta name="msapplication-TileColor" content="#0b0f19" />
+  <meta property="og:title" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
+  <meta property="og:site_name" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
+  <meta property="og:description"
+    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
+  <meta name="twitter:description"
+    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
+
+  <link rel="icon" type="image/x-icon" href="src/assets/icons/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon-light.svg"
+    media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="src/assets/icons/favicon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="src/assets/icons/favicon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icons/apple-touch-icon.png" />
+
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="msapplication-TileColor" content="#152331" />
   <meta id="meta-theme-light" name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta id="meta-theme-dark" name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)" />
+  <meta id="meta-theme-dark" name="theme-color" content="#152331" media="(prefers-color-scheme: dark)" />
 
   <link rel="stylesheet" href="src/css/style.css" />
+
+  <style>
+    /* Fixiertes Viewport-Layout – Scrollen komplett deaktiviert */
+    html,
+    body {
+      height: 100vh;
+      height: 100dvh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+      touch-action: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background: var(--body-bg, linear-gradient(135deg, #152331 0%, #000000 100%));
+      color: var(--text-main, #f8fafc);
+    }
+
+    .construction-hero {
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: auto 0;
+    }
+
+    .brand-logo-img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 1.25rem;
+      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.25));
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--brand-accent, #38bdf8);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .status-badge .material-symbols-rounded {
+      font-size: 15px;
+      color: #38bdf8;
+      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.4));
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.9));
+      }
+    }
+
+    .construction-text {
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      max-width: 420px;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .btn-github {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      background: var(--brand-accent-gradient, linear-gradient(135deg, #38bdf8 0%, #0284c7 100%));
+      color: #000000;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .btn-github:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.38);
+      filter: brightness(1.06);
+    }
+
+    .btn-github .material-symbols-rounded {
+      font-size: 18px;
+    }
+
+    .footer-copy {
+      font-size: 0.725rem;
+      color: var(--text-subtle, #64748b);
+      padding-bottom: 0.5rem;
+    }
+  </style>
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Overload - Gym & Progress Tracker",
+      "name": "Overload: Fokussiertes Progress Tracking ohne Kompromisse",
+      "alternateName": "Overload",
       "applicationCategory": "HealthAndFitnessApplication",
-      "operatingSystem": "Android, iOS",
-      "description": "Mobile App für smartes Krafttraining, Routine-Tracking und progressive Steigerung.",
+      "operatingSystem": "Android, iOS, Web",
+      "description": "Overload: Fokussiertes Progress Tracking ohne Kompromisse. Mobile-First Plattform für progressives Krafttraining.",
       "url": "https://3utbg8rv0xw4t5z.github.io/overload-website/"
     }
   </script>
@@ -88,10 +193,29 @@
 <body>
   <div id="page-preloader"></div>
 
-  <main>
-    <h1>🏋️‍♂️ Overload – Gym & Progress Tracker</h1>
-    <p>Landingpage & Knowledge Hub under construction. Bald verfügbar!</p>
+  <main class="construction-hero">
+    <img src="src/assets/icons/logo-text-light.svg" alt="Overload Logo" class="brand-logo-img" />
+
+    <div class="status-badge">
+      <span class="material-symbols-rounded">construction</span>
+      Under Construction
+    </div>
+
+    <p class="construction-text">
+      Hier entsteht dein neues Workout-Erlebnis: kompromissloses Tracking, progressive Steigerung und maximaler Fokus
+      auf deinen Fortschritt im Gym. Die Overload App ist bald für dich verfügbar!
+    </p>
+
+    <a href="https://github.com/3utbg8rv0xw4t5z/overload-website" target="_blank" rel="noopener noreferrer"
+      class="btn-github">
+      <span class="material-symbols-rounded">code</span>
+      Projekt auf GitHub ansehen
+    </a>
   </main>
+
+  <footer class="footer-copy">
+    &copy; 2026 OVERLOAD. All rights reserved.
+  </footer>
 
   <script src="src/js/script.js" defer></script>
 
@@ -99,9 +223,13 @@
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
-          .register("./sw.js", { scope: "./" })
-          .then((registration) => console.log("[Overload SW] Aktiv im Scope:", registration.scope))
-          .catch((error) => console.error("[Overload SW] Fehler:", error));
+          .register("./sw.js")
+          .then((registration) => {
+            console.log("[SW] Registriert:", registration.scope);
+          })
+          .catch((error) => {
+            console.error("[SW] Registrierungsfehler:", error);
+          });
       });
     }
   </script>

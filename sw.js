@@ -1,6 +1,6 @@
-const CACHE_NAME = "overload-website-v2";
+const CACHE_NAME = "overload-website-v5";
 
-// Alle Dateien, die für den Offline-Betrieb gecacht werden
+// Alle Dateien für den Offline-Betrieb inklusive ALLER Icons aus dem Explorer
 const ASSETS_TO_CACHE = [
   // Basis-Dateien & Routing
   "./",
@@ -14,30 +14,43 @@ const ASSETS_TO_CACHE = [
   "./src/css/style.css",
   "./src/js/script.js",
 
-  // Schriften
+  // Schriften & Material Symbols
   "./src/assets/fonts/Inter-VariableFont_opsz,wght.ttf",
   "./src/assets/fonts/InterTight-VariableFont_wght.ttf",
   "./src/assets/fonts/material-symbols-rounded-latin-standard-normal.woff2",
 
-  // Icons für PWA-Installation & Favicons
-  "./src/assets/icons/icon-192.png",
-  "./src/assets/icons/icon-512.png"
+  // Kompletter Icon-Satz (alle 10 Dateien)
+  "./src/assets/icons/app-icon-dark.svg",
+  "./src/assets/icons/app-icon-light.svg",
+  "./src/assets/icons/apple-touch-icon.png",
+  "./src/assets/icons/favicon-192.png",
+  "./src/assets/icons/favicon-512.png",
+  "./src/assets/icons/favicon-dark.svg",
+  "./src/assets/icons/favicon-light.svg",
+  "./src/assets/icons/favicon.ico",
+  "./src/assets/icons/favicon.svg",
+  "./src/assets/icons/logo-dark.svg",
+  "./src/assets/icons/logo-light.svg",
+  "./src/assets/icons/logo-text-dark.svg",
+  "./src/assets/icons/logo-text-light.svg",
+  "./src/assets/icons/text-logo-dark.svg",
+  "./src/assets/icons/text-logo-light.svg"
 ];
 
-// 1. Installation: Dateien laden und im Cache ablegen
+// 1. Installation: Dateien cachen
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
       .then((cache) => {
-        console.log("[Overload SW] Speichere Assets im Cache...");
+        console.log("[Overload SW] Speichere alle Assets & Icons im Cache...");
         return cache.addAll(ASSETS_TO_CACHE);
       })
       .then(() => self.skipWaiting())
   );
 });
 
-// 2. Aktivierung: Alte Caches löschen, wenn sich CACHE_NAME ändert
+// 2. Aktivierung: Alten Cache bereinigen
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
@@ -56,7 +69,7 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// 3. Fetch-Strategie: Cache First mit Netzwerk-Fallback
+// 3. Fetch-Strategie: Cache First mit Fallback
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
