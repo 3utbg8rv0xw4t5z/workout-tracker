@@ -11,5 +11,7 @@
   </defs>
   
   <rect width="1024" height="1024" fill="url(#moonwalker-bg)" />
-  <circle cx="512" cy="512" r="280" fill="none" stroke="url(#daywalker-stroke)" stroke-width="140" />
+  
+  <circle cx="512" cy="512" r="210" fill="none" stroke="url(#daywalker-stroke)" stroke-width="90" />
 </svg>
+
