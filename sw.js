@@ -1,4 +1,4 @@
-const CACHE_NAME = "overload-website-v5";
+const CACHE_NAME = "overload-website-v6";
 
 // Alle Dateien für den Offline-Betrieb inklusive ALLER Icons aus dem Explorer
 const ASSETS_TO_CACHE = [
