@@ -21,23 +21,11 @@
   <meta name="color-scheme" content="dark light" />
   <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
   <meta name="description"
-    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
+    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Die Smart Fitness App befindet sich in aktiver Entwicklung. Bald verfügbar!" />
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Overload" />
-
-  <meta property="og:title" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
-  <meta property="og:site_name" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
-  <meta property="og:description"
-    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://3utbg8rv0xw4t5z.github.io/overload-website/" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Overload: Fokussiertes Progress Tracking ohne Kompromisse" />
-  <meta name="twitter:description"
-    content="Overload: Fokussiertes Progress Tracking ohne Kompromisse. Hier entsteht deine neue Plattform für smartes Krafttraining und progressive Steigerung. Bald verfügbar!" />
 
   <link rel="icon" type="image/x-icon" href="src/assets/icons/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
@@ -56,7 +44,7 @@
   <link rel="stylesheet" href="src/css/style.css" />
 
   <style>
-    /* Fixiertes Viewport-Layout – Scrollen komplett deaktiviert */
+    /* Viewport fixiert */
     html,
     body {
       height: 100vh;
@@ -67,112 +55,122 @@
       overflow: hidden;
       box-sizing: border-box;
       touch-action: none;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
       background: var(--body-bg, linear-gradient(135deg, #152331 0%, #000000 100%));
       color: var(--text-main, #f8fafc);
     }
 
-    .construction-hero {
-      max-width: 480px;
+    /* Relative Stage für absolute Platzierung */
+    .showcase-stage {
+      position: relative;
       width: 100%;
+      height: 100%;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      text-align: center;
-      margin: auto 0;
     }
 
-    .brand-logo-img {
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 1.25rem;
-      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.25));
-    }
-
+    /* 1. Badge oben (30px Abstand) */
     .status-badge {
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 0.25rem 0.75rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 9999px;
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      color: var(--brand-accent, #38bdf8);
-      font-size: 0.72rem;
+      background: rgba(74, 222, 128, 0.06);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      white-space: nowrap;
+      z-index: 10;
     }
 
     .status-badge .material-symbols-rounded {
-      font-size: 15px;
-      color: #38bdf8;
-      animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      font-size: 13px;
+      color: #4ade80;
+      animation: pulse-green-glow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
-    @keyframes pulse-glow {
+    @keyframes pulse-green-glow {
 
       0%,
       100% {
         transform: scale(1);
-        opacity: 0.8;
-        filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.4));
+        opacity: 0.7;
+        filter: drop-shadow(0 0 2px rgba(74, 222, 128, 0.3));
       }
 
       50% {
         transform: scale(1.15);
         opacity: 1;
-        filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.9));
+        filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.8));
       }
     }
 
-    .construction-text {
-      color: var(--text-muted, #94a3b8);
-      font-size: 0.92rem;
-      line-height: 1.55;
-      max-width: 420px;
-      margin: 0 0 1.5rem 0;
+    /* 2. Logo exakt im mathematischen Zentrum */
+    .brand-logo-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 360px;
+      width: 80%;
+      height: auto;
+      filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.3));
+      z-index: 5;
+      pointer-events: none;
+      user-select: none;
     }
 
-    .btn-github {
+    /* GitHub FAB Button im hellen Daywalker-Look */
+    .btn-github-bottom {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      left: auto;
+      transform: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
-      background: var(--brand-accent-gradient, linear-gradient(135deg, #38bdf8 0%, #0284c7 100%));
-      color: #000000;
+      gap: 0.4rem;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 0.95rem;
+      border-radius: 9999px;
+
+      /* Daywalker Gradient: Clean White / Subtle Light Slate */
+      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+      color: #0b0f19;
+      border: 1px solid rgba(255, 255, 255, 0.8);
       font-weight: 600;
-      font-size: 0.85rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 10px;
+      font-size: 0.75rem;
+      line-height: 1;
       text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+      white-space: nowrap;
+
+      /* Weicher, edler Daywalker Glow */
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.18), 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 20;
     }
 
-    .btn-github:hover {
+    .btn-github-bottom:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(56, 189, 248, 0.38);
-      filter: brightness(1.06);
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3), 0 3px 8px rgba(0, 0, 0, 0.4);
+      color: #000000;
     }
 
-    .btn-github .material-symbols-rounded {
-      font-size: 18px;
-    }
-
-    .footer-copy {
-      font-size: 0.725rem;
-      color: var(--text-subtle, #64748b);
-      padding-bottom: 0.5rem;
+    .btn-github-bottom .material-symbols-rounded {
+      font-size: 16px;
+      line-height: 1;
+      color: #0b0f19;
     }
   </style>
 
@@ -184,7 +182,7 @@
       "alternateName": "Overload",
       "applicationCategory": "HealthAndFitnessApplication",
       "operatingSystem": "Android, iOS, Web",
-      "description": "Overload: Fokussiertes Progress Tracking ohne Kompromisse. Mobile-First Plattform für progressives Krafttraining.",
+      "description": "Smart Fitness App in aktiver Entwicklung. Fokussiertes Progress Tracking ohne Kompromisse.",
       "url": "https://3utbg8rv0xw4t5z.github.io/overload-website/"
     }
   </script>
@@ -193,29 +191,19 @@
 <body>
   <div id="page-preloader"></div>
 
-  <main class="construction-hero">
-    <img src="src/assets/icons/logo-text-light.svg" alt="Overload Logo" class="brand-logo-img" />
-
+  <main class="showcase-stage">
     <div class="status-badge">
-      <span class="material-symbols-rounded">construction</span>
-      Under Construction
+      <span class="material-symbols-rounded">terminal</span>
+      In aktiver Entwicklung
     </div>
 
-    <p class="construction-text">
-      Hier entsteht dein neues Workout-Erlebnis: kompromissloses Tracking, progressive Steigerung und maximaler Fokus
-      auf deinen Fortschritt im Gym. Die Overload App ist bald für dich verfügbar!
-    </p>
+    <img src="src/assets/icons/logo-text-light.svg" alt="Overload Logo" class="brand-logo-center" />
 
     <a href="https://github.com/3utbg8rv0xw4t5z/overload-website" target="_blank" rel="noopener noreferrer"
-      class="btn-github">
+      class="btn-github-bottom" title="Projekt auf GitHub ansehen" aria-label="Projekt auf GitHub ansehen">
       <span class="material-symbols-rounded">code</span>
-      Projekt auf GitHub ansehen
     </a>
   </main>
-
-  <footer class="footer-copy">
-    &copy; 2026 OVERLOAD. All rights reserved.
-  </footer>
 
   <script src="src/js/script.js" defer></script>
 
