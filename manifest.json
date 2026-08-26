@@ -10,16 +10,10 @@
   "theme_color": "#152331",
   "icons": [
     {
-      "src": "src/assets/icons/app-icon-dark.svg",
+      "src": "src/assets/icons/pwa-icon-dark.svg",
       "sizes": "192x192 512x512",
       "type": "image/svg+xml",
-      "purpose": "maskable"
-    },
-    {
-      "src": "src/assets/icons/favicon-dark.svg",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ],
   "theme_colors": [

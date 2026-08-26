@@ -1,4 +1,4 @@
-const CACHE_NAME = "overload-website-v8";
+const CACHE_NAME = "overload-website-v9";
 
 // Alle Dateien für den Offline-Betrieb inklusive ALLER Icons aus dem Explorer
 const ASSETS_TO_CACHE = [
@@ -30,6 +30,7 @@ const ASSETS_TO_CACHE = [
   "./src/assets/icons/favicon.ico",
   "./src/assets/icons/favicon.svg",
   "./src/assets/icons/logo-dark.svg",
+  "./src/assets/icons/pwa-icon-dark.svg",
   "./src/assets/icons/logo-light.svg",
   "./src/assets/icons/logo-text-dark.svg",
   "./src/assets/icons/logo-text-light.svg",
